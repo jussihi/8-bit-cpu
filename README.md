@@ -77,7 +77,7 @@ All the opcodes are structured:
 | `JNA addr`, `JBE addr` | **10101100b** | Jump if: (Carry=TRUE && Zero=TRUE) **meaning** lower or equal (<=) **OR** not higher (! >) |
 |**Other**|||
 | `CALL address` | **10101101b** | Change instruction pointer (**IP**) to point to the *address*. Push the next instruction to stack. |
-| `RET` | **10101110b** | Return from a function. |
+| `RET` | **01101110b** | Return from a function. |
 | `PUSH register` | **10101111b** | Push register value to stack. |
 | `PUSH address` | **10110000b** | Push value from memory to stack. |
 | `PUSH constant` | **10110001b** | Push constant to stack. |
