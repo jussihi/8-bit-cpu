@@ -54,31 +54,31 @@ All the opcodes are structured:
 | `AND reg, reg` | **11010111b** | Stores resulting AND operation in dest register |
 | `AND reg, address` | **11011000b** | Stores resulting AND operation in dest register |
 | `AND reg, constant` | **11011001b** | Stores resulting AND operation in dest register |
-| `OR reg, reg` | **11011001b** | Stores resulting OR operation in dest register |
-| `OR reg, address` | **11011010b** | Stores resulting OR operation in dest register |
-| `OR reg, constant` | **11011011b** | Stores resulting OR operation in dest register |
-| `XOR reg, reg` | **11011100b** | Stores resulting XOR operation in dest register |
-| `XOR reg, address` | **11011101b** | Stores resulting XOR operation in dest register |
-| `XOR reg, constant` | **11011110b** | Stores resulting XOR operation in dest register |
+| `OR reg, reg` | **11011010b** | Stores resulting OR operation in dest register |
+| `OR reg, address` | **11011011b** | Stores resulting OR operation in dest register |
+| `OR reg, constant` | **11011100b** | Stores resulting OR operation in dest register |
+| `XOR reg, reg` | **11011101b** | Stores resulting XOR operation in dest register |
+| `XOR reg, address` | **11011110b** | Stores resulting XOR operation in dest register |
+| `XOR reg, constant` | **11011111b** | Stores resulting XOR operation in dest register |
 |**Shift instructions dest, count**|||
-| `SHL reg, reg` | **11011111b** | Shifts dest register left by *count* |
-| `SHL reg, address` | **11100000b** | Shifts dest register bits left by *count* |
-| `SHL reg, constant` | **11100001b** | Shifts dest register left by *count* |
-| `SHR reg, reg` | **11100010b** | Shifts dest register right by *count* |
-| `SHR reg, address` | **11100011b** | Shifts dest register right by *count* |
-| `SHR reg, constant` | **11100100b** | Shifts dest register right by *count* |
+| `SHL reg, reg` | **11100000b** | Shifts dest register left by *count* |
+| `SHL reg, address` | **11100001b** | Shifts dest register bits left by *count* |
+| `SHL reg, constant` | **11100010b** | Shifts dest register left by *count* |
+| `SHR reg, reg` | **11100011b** | Shifts dest register right by *count* |
+| `SHR reg, address` | **11100100b** | Shifts dest register right by *count* |
+| `SHR reg, constant` | **11100101b** | Shifts dest register right by *count* |
 |**Jumps**|||
-| `JMP address` | **10100101b** | Change instruction pointer (**IP**) to point to the *address* |
-| `JC addr`, `JB addr`, `JNAE addr` | **10100110b** | Jump if: (Carry=TRUE) **meaning** lower (<) **OR** if not more or equal (! >=) |
-| `JNC addr`, `JNB addr`, `JAE addr` | **10100111b** | Jump if: (Carry=FALSE) **meaning** not lower (! <) **OR** if more or equal (>=) |
-| `JZ addr`, `JE addr` | **10101000b** | Jump if: (Zero=TRUE) **meaning** equal (==) |
-| `JNZ addr`, `JNE addr` | **10101000b** | Jump if: (Zero=FALSE) **meaning** not equal (!=) |
-| `JA addr`, `JNBE addr` | **10101001b** | Jump if: (Carry=TRUE || Zero=TRUE) **meaning** higher (>) **OR** not less or equal (! <=) |
-| `JNA addr`, `JBE addr` | **10101010b** | Jump if: (Carry=TRUE && Zero=TRUE) **meaning** lower or equal (<=) **OR** not higher (! >) |
+| `JMP address` | **10100110b** | Change instruction pointer (**IP**) to point to the *address* |
+| `JC addr`, `JB addr`, `JNAE addr` | **10100111b** | Jump if: (Carry=TRUE) **meaning** lower (<) **OR** if not more or equal (! >=) |
+| `JNC addr`, `JNB addr`, `JAE addr` | **10101000b** | Jump if: (Carry=FALSE) **meaning** not lower (! <) **OR** if more or equal (>=) |
+| `JZ addr`, `JE addr` | **10101001b** | Jump if: (Zero=TRUE) **meaning** equal (==) |
+| `JNZ addr`, `JNE addr` | **10101010b** | Jump if: (Zero=FALSE) **meaning** not equal (!=) |
+| `JA addr`, `JNBE addr` | **10101011b** | Jump if: (Carry=TRUE || Zero=TRUE) **meaning** higher (>) **OR** not less or equal (! <=) |
+| `JNA addr`, `JBE addr` | **10101100b** | Jump if: (Carry=TRUE && Zero=TRUE) **meaning** lower or equal (<=) **OR** not higher (! >) |
 |**Other**|||
-| `CALL address` | **10100101b** | Change instruction pointer (**IP**) to point to the *address*. Push the next instruction to stack. |
-| `RET` | **01100110b** | Return from a function. |
-| `PUSH register` | **10100111b** | Push register value to stack. |
-| `PUSH address` | **10101000b** | Push value from memory to stack. |
-| `PUSH constant` | **10101001b** | Push constant to stack. |
-| `POP reg` | **10101010b** | Pop a value from stack to register. |
+| `CALL address` | **10101101b** | Change instruction pointer (**IP**) to point to the *address*. Push the next instruction to stack. |
+| `RET` | **10101110b** | Return from a function. |
+| `PUSH register` | **10101111b** | Push register value to stack. |
+| `PUSH address` | **10110000b** | Push value from memory to stack. |
+| `PUSH constant` | **10110001b** | Push constant to stack. |
+| `POP reg` | **10110010b** | Pop a value from stack to register. |
