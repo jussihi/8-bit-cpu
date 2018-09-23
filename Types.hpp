@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 
 typedef uint8_t byte;
 
@@ -9,6 +10,23 @@ enum ParamType {
   ADDRESS,
   CONSTANT,
   NONE
+};
+
+typedef std::vector<std::string> RegisterVector;
+
+RegisterVector ByteRegisters = {
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "IP",
+  "SP"
+};
+
+RegisterVector FlagRegisters = {
+  "Zero",
+  "Carry"
 };
 
 struct OpCode {
@@ -21,7 +39,9 @@ struct OpCode {
   OpCode(std::string presentation, byte code) : AssemblyPresentation(presentation), MachineCode(code), Param1(NONE), Param2(NONE) {}
 };
 
-OpCode OpCodes[] = {
+
+typedef std::vector<OpCode> OpCodeVector; 
+OpCodeVector OpCodes = {
 
   // HLT
   OpCode("HLT", 0x00),
@@ -100,5 +120,5 @@ OpCode OpCodes[] = {
   OpCode("PUSH", 0xAF, REGISTER),
   OpCode("PUSH", 0xB0, ADDRESS),
   OpCode("PUSH", 0xB1, CONSTANT),
-  OpCode("POP",  0xB2, REGISTER),
+  OpCode("POP",  0xB2, REGISTER)
 };
