@@ -22,7 +22,7 @@ All the opcodes are structured:
 | `Assembly representation`       |  opcode  | Action |
 | ------------- | :-----:| ------|
 | `DB` |  | Define bytes. This should be in a ro-data section |
-| `HLT` | **01000000b** | Halts the CPU |
+| `HLT` | **00000000b** | Halts the CPU |
 |**MOV dest, src**|||
 | `MOV reg, reg`   |  **11000001b** | Copies the byte from register to another |
 | `MOV reg, address`    |   **11000010b** | Copies a byte from address to register |
